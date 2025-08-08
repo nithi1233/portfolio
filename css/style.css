@@ -36,8 +36,29 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 a {
@@ -345,6 +366,10 @@ nav {
 }
 
 /* Skills Section */
+.skills {
+    background-color: #f5f7fa;
+}
+
 .skills h2 {
     text-align: center;
     margin-bottom: 50px;
@@ -352,52 +377,79 @@ nav {
 
 .skills-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .skill-category {
     background-color: var(--white);
-    padding: 25px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border-top: 4px solid var(--secondary-color);
 }
 
-.skill-category h3 {
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.category-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.category-header i {
+    font-size: 1.8rem;
     color: var(--secondary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.category-header h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
 }
 
 .skill-items {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 15px;
 }
 
 .skill-item {
-    margin-bottom: 15px;
-}
-
-.skill-info {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    transition: var(--transition);
 }
 
-.skill-bar {
-    height: 10px;
-    background-color: #e0f2fe;
-    border-radius: 5px;
-    overflow: hidden;
+.skill-item:hover {
+    background-color: #eef6fd;
+    transform: translateX(5px);
 }
 
-.skill-level {
-    height: 100%;
-    background-color: var(--secondary-color);
-    border-radius: 5px;
+.skill-item i {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.skill-item span {
+    font-weight: 500;
 }
 
 /* Achievements Section */
@@ -686,6 +738,11 @@ footer {
     .achievement-grid {
         grid-template-columns: 1fr;
     }
+    
+    h2 {
+        font-size: 1.8rem;
+        padding: 0 15px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -704,5 +761,51 @@ footer {
     .btn {
         width: 100%;
         text-align: center;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .contact-content {
+        flex-direction: column;
+    }
+}
+
+/* Adjust the margin-top for sections to create more space below the fixed nav */
+section {
+    padding: 100px 0 80px; /* Increased top padding */
+}
+
+/* Specifically for the about section to ensure proper spacing */
+.about {
+    padding-top: 120px; /* Extra space for the about section */
+}
+
+/* Adjust hero section margin to account for fixed nav */
+.hero {
+    margin-top: 80px;
+    padding: 80px 0; /* Increased padding */
+}
+
+/* Ensure h2 headings have proper spacing */
+h2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Media query adjustments for mobile */
+@media screen and (max-width: 768px) {
+    section {
+        padding: 80px 0 60px;
+    }
+    
+    .about {
+        padding-top: 100px;
+    }
+    
+    h2 {
+        margin-top: 15px;
+        margin-bottom: 25px;
     }
 }
